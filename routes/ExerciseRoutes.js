@@ -1,12 +1,12 @@
 const  express = require("express");
 const router = express.Router()
-const {getContacts, getContact, createContacts, updateContact, deleteContact} = require("../controllers/ContactControllers");
+const {getExercises, getExercise, createExercise, updateExercise, deleteExercise} = require("../controllers/ExerciseControllers");
 const validateToken = require("../middleWare/validateTokenHandler");
 
 router.use(validateToken)
-router.route("/").get(getContacts).post(createContacts)
+router.route("/").get(getExercises).post(createExercise)
 
-router.route("/:id").get( getContact).put(updateContact).delete(deleteContact)
+router.route("/:id").get( getExercise).put(updateExercise).delete(deleteExercise)
 
 // lengthy way of routing
 // router.route("/").get(getContacts)
