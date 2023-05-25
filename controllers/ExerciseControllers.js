@@ -18,7 +18,8 @@ const getExercise = asyncHandler(async (req, res)=>{
         res.status(404);
         throw new Error("contact  not found")
     }
-    res.status(200).json(contact)
+   
+    res.status(200).json(exercise)
 })
 
 // @desc create a contact
@@ -26,19 +27,29 @@ const getExercise = asyncHandler(async (req, res)=>{
 // @access private
 const createExercise = asyncHandler(async (req, res)=>{
     console.log("creating a user: ", req.body)
-    const {name, type, date} = req.body
-    if(!name || !type || !date){
+    const {name,
+        desc,
+        type,
+        date,
+        duration} = req.body
+    if( !name,
+        !desc,
+        !type,
+        !date,
+        !duration){
         res.status(400)
         throw new Error("data not fount")
     }
 
     const exercise = await Exercise.create({
         name,
+        desc,
         type,
         date,
+        duration,
         user_id: req.user.id
     })
-    res.status(201).json(exercise)
+    res.status(200).json(exercise)
 })
 
 // @desc update a contact

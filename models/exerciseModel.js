@@ -10,6 +10,10 @@ const exerciseModel = mongoose.Schema({
         type: String,
         required: [true, "please add the exercise name"]
     },
+    desc: {
+        type: String,
+        required: [true, "please add the exercise name"]
+    },
     type: {
         type: String,
         required: [true, "please add the exercise type"]
