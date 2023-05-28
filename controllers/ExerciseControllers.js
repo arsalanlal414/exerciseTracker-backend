@@ -5,7 +5,7 @@ const Exercise = require("../models/exerciseModel")
 // @Route /api/contact
 // @access private
 const getExercises = asyncHandler( async (req, res) => {
-    const exercise = await Exercise.find({user_id : req.user.id})
+    const exercise = await Exercise.find({user_id : req.user.id}).sort({createdAt:-1})
     res.status(200).json(exercise)
 })
 
